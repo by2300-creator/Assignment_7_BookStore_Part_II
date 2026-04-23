@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block container %}
+<main>
+    <div id="mainLeft">
+        <h1 class="welcomeText">
+            And from here, <br>
+            <br>
+            you picked up the meaningful combination.
+        </h1>
+
+        <p class="welcomeText">
+            Somewhere, in the infinite noise, a monkey typed your story.
+        </p>
+        <p class="welcomeText">
+            Romances, horrors, mysteries, and science fictions, the infinity blessed the cursed randomness.
+        </p>
+        <p class="welcomeText">
+            Every book is a miracle of probability.
+        </p>
+        <h2 class="welcomeText">
+            And we have one that belongs to you.
+        </h2>
+    </div>
+
+    <div id="mainRight">
+        <h1>Shop by Category:</h1>
+        <div id="categorySelections">
+            {% for category in categories %}
+            <div class="category">
+                <p>
+                    <a href="{{ url_for('category', categoryId=category.categoryId) }}">
+                        {{ category.categoryName }}
+                    </a>
+                </p>
+
+                <a href="{{ url_for('category', categoryId=category.categoryId) }}">
+                    <img
+                        src="{{ url_for('static', filename='images/categories/' + category.categoryName|lower|replace(' ', '-') + '-category.jpg') }}"
+                        alt="{{ category.categoryName }}"
+                    >
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+{% endblock %}

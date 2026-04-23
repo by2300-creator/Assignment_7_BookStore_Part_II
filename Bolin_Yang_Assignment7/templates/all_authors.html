@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<main>
+    <section id="catLeft">
+        {% for cat in categories %}
+            <p class="notSelectedCategory">
+                <a href="{{ url_for('category', categoryId=cat.categoryId) }}">
+                    {{ cat.categoryName }}
+                </a>
+            </p>
+        {% endfor %}
+    </section>
+
+    <section id="catRight">
+        <p style="margin: 20px 20px 10px 20px;">
+            <strong>Browse by Author</strong> — {{ authors|length }} authors
+        </p>
+
+        <div style="display:flex; flex-wrap:wrap; padding: 0 20px 20px 20px; gap:12px;">
+            {% for row in authors %}
+                <a href="{{ url_for('by_author', author=row.author) }}"
+                   class="actionButton"
+                   style="width:auto; padding: 0 16px; height:34px; line-height:34px;">
+                    {{ row.author }}
+                </a>
+            {% endfor %}
+        </div>
+    </section>
+</main>
+{% endblock %}

@@ -1,0 +1,548 @@
+/* ============================================================
+   The Bookshelf — Main Stylesheet
+   Visual theme: Deep navy + antique gold, editorial feel
+   ============================================================ */
+
+
+
+/* --- CSS Variables --- */
+:root {
+    --primary: #1a2744;       /* Deep navy */
+    --accent: #c9a84c;        /* Antique gold */
+    --accent-hover: #e8c76a;  /* Light gold on hover */
+    --bg-light: #fdf8f0;      /* Warm cream background */
+    --text-dark: #1a1a2e;
+    --text-muted: #555;
+    --border: #ddd;
+}
+
+/* --- Base --- */
+body {
+    max-width: 1160px;
+    font-family: 'Lato', Arial, sans-serif;
+    color: var(--text-dark);
+    background-image: url('../images/misc/background.jpg');
+    background-size: cover; /* Ensures the image covers the whole screen */
+    background-position: fixed; /* fixes the image */
+}
+
+
+h1, h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-left: 10px;
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 8px;
+}
+
+#categoryNav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background-color: var(--primary);
+    border-bottom: 2px solid var(--accent);
+    padding: 0 10px;
+    margin-left: 10px;
+}
+
+#categoryNav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.85em;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 12px 18px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#categoryNav a:hover {
+    background-color: var(--accent);
+    color: var(--primary);
+}
+
+/* --- Search & Dropdown --- */
+#searchBoxForm {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+#searchBox {
+    height: 28px;
+    padding: 0 10px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+#searchBox:focus {
+    outline: 2px solid var(--accent);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-top: 14px;
+}
+
+.dropdownSelect {
+    width: 200px;
+    padding: 6px 10px;
+    background-color: var(--primary);
+    color: var(--accent);
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 0.85em;
+    letter-spacing: 0.05em;
+    text-align: center;
+    display: block;
+    border-radius: 4px;
+    border: 1px solid var(--accent);
+    cursor: pointer;
+}
+
+.dropdownContent {
+    display: none;
+    position: absolute;
+    min-width: 210px;
+    padding-top: 4px;
+    z-index: 10;
+    border-radius: 4px;
+    background-color: var(--primary);
+    border: 1px solid var(--accent);
+    text-align: center;
+}
+
+.dropdown:hover .dropdownContent {
+    display: block;
+}
+
+.dropdownContent p {
+    margin: 0;
+    padding: 2px 0;
+}
+
+.dropdownContent a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9em;
+    display: block;
+    padding: 6px 10px;
+}
+
+.dropdownContent a:hover {
+    background-color: var(--accent);
+    color: var(--primary);
+}
+
+/* --- Right Header --- */
+#rightHeader {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    gap: 8px;
+}
+
+#cartCount {
+    width: 80px;
+    font-size: 0.8em;
+    color: var(--text-muted);
+}
+
+.loginButton {
+    background-color: var(--primary);
+    border: 1px solid var(--accent);
+    height: 30px;
+    min-width: 55px;
+    padding: 0 10px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 4px;
+    font-size: 0.85em;
+}
+
+.loginButton a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.loginButton a:hover {
+    color: var(--accent-hover);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid var(--accent);
+    margin-left: 10px;
+    padding: 15px 0;
+    font-size: 0.8em;
+    color: var(--text-muted);
+    margin-top: 10px;
+}
+
+#footerLeft {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-left: 10px;
+}
+
+#footerLeft a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+#footerLeft a:hover {
+    color: var(--accent);
+}
+
+#footerRight {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-right: 50px;
+}
+
+/* ============================================================
+   MAIN LAYOUT
+   ============================================================ */
+main {
+    display: flex;
+    margin: 0 0 0 10px;
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+}
+
+/* ============================================================
+   INDEX PAGE
+   ============================================================ */
+#mainLeft {
+    width: 550px;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(160deg, var(--primary) 0%, #2e4072 100%);
+    color: #fff;
+}
+
+#mainLeft h1.welcomeText {
+    color: var(--accent);
+    font-size: 2em;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+#mainLeft p.welcomeText {
+    font-size: 1em;
+    color: #ccd6f6;
+    max-width: 380px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+#mainRight {
+    max-width: 600px;
+    border-left: 1px solid var(--border);
+    padding: 20px;
+    background-color: var(--bg-light);
+    text-align: center;
+}
+
+#mainRight h1 {
+    color: var(--primary);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+}
+
+#categorySelections {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.category {
+    width: 260px;
+    margin: 16px auto;
+    text-align: center;
+    color: var(--primary);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+.category a {
+    text-decoration: none;
+    color: var(--primary);
+    font-size: 1.05em;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.category a:hover {
+    color: var(--accent);
+}
+
+.category img {
+    border: 3px solid var(--accent);
+    border-radius: 4px;
+    transition: transform 0.2s ease;
+    max-width: 240px;
+}
+
+.category img:hover {
+    transform: scale(1.03);
+}
+
+/* ============================================================
+   CATEGORY PAGE
+   ============================================================ */
+#catLeft {
+    width: 200px;
+    min-width: 180px;
+    border-right: 1px solid var(--border);
+    background-color: var(--primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.notSelectedCategory {
+    height: 34px;
+    width: 140px;
+    border-radius: 4px;
+    margin: 8px auto;
+    text-align: center;
+    line-height: 34px;
+    background-color: rgba(255,255,255,0.08);
+    transition: background-color 0.2s;
+}
+
+.notSelectedCategory:hover {
+    background-color: rgba(201, 168, 76, 0.2);
+}
+
+.notSelectedCategory a {
+    color: #ccd6f6;
+    font-size: 0.875em;
+    text-decoration: none;
+    display: block;
+}
+
+.notSelectedCategory a:hover {
+    color: var(--accent);
+}
+
+.selectedCategory {
+    height: 34px;
+    width: 140px;
+    border: 2px solid var(--accent);
+    border-radius: 4px;
+    margin: 8px auto;
+    text-align: center;
+    line-height: 34px;
+    color: var(--accent);
+    font-size: 0.875em;
+    font-weight: 700;
+}
+
+/* --- Book Grid --- */
+#catRight {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--bg-light);
+    gap: 0;
+}
+
+.book {
+    width: 320px;
+    margin: 20px;
+    display: flex;
+    background-color: #fff;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    transition: box-shadow 0.2s;
+    overflow: hidden;
+}
+
+.book:hover {
+    box-shadow: 0 4px 16px rgba(26, 39, 68, 0.15);
+}
+
+.bookDetailBox {
+    margin: 16px 10px 16px 14px;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.875em;
+}
+
+.bookTitle {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1em;
+    margin-bottom: 4px;
+}
+
+.bookTitle a {
+    text-decoration: none;
+    color: var(--primary);
+}
+
+.bookTitle a:hover {
+    color: var(--accent);
+}
+
+.bookDetail {
+    margin-top: 3px;
+    font-size: 0.875em;
+    color: var(--text-muted);
+}
+
+.bookPrice {
+    margin-top: 8px;
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 1.1em;
+}
+
+/* ============================================================
+   ACTION BUTTONS
+   ============================================================ */
+.actionButton {
+    display: inline-block;
+    height: 28px;
+    padding: 0 14px;
+    border-radius: 4px;
+    margin-top: 6px;
+    line-height: 28px;
+    text-align: center;
+    background-color: var(--accent);
+    color: var(--primary);
+    font-size: 0.8em;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.actionButton:hover {
+    background-color: var(--accent-hover);
+}
+
+/* ============================================================
+   FORMS (Add Book / Edit Book)
+   ============================================================ */
+form label {
+    font-weight: 700;
+    font-size: 0.9em;
+    color: var(--primary);
+}
+
+form input[type="text"],
+form input[type="number"],
+form select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 0.95em;
+    box-sizing: border-box;
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form select:focus {
+    outline: 2px solid var(--accent);
+    border-color: var(--accent);
+}
+
+.submitBtn {
+    display: inline-block;
+    height: 36px;
+    padding: 0 20px;
+    background-color: var(--primary);
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.95em;
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-right: 10px;
+}
+
+.submitBtn:hover {
+    background-color: #2e4072;
+}
+
+.cancelBtn {
+    display: inline-block;
+    height: 36px;
+    padding: 0 16px;
+    background-color: #f0f0f0;
+    color: #555;
+    font-size: 0.9em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-decoration: none;
+    line-height: 36px;
+    transition: background-color 0.2s;
+}
+
+.cancelBtn:hover {
+    background-color: #e0e0e0;
+}
+
+/* Fallback utility classes kept from original */
+.submitButton {
+    height: 28px;
+    border-radius: 4px;
+    border: none;
+    padding: 0 12px;
+    background-color: var(--accent);
+    color: var(--primary);
+    font-size: 0.875em;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.commandButton {
+    display: block;
+    height: 30px;
+    width: 150px;
+    border-radius: 4px;
+    margin: 20px;
+    text-align: center;
+    line-height: 30px;
+    background-color: var(--primary);
+    color: var(--accent);
+    font-size: smaller;
+    text-decoration: none;
+    border: 1px solid var(--accent);
+}
+
+#notFoundMessage {
+    color: #c0392b;
+}
